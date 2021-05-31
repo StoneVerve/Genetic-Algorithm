@@ -1,0 +1,7 @@
+\select@language {spanish}
+\beamer@sectionintoc {1}{Introducci\IeC {\'o}n}{3}{0}{1}
+\beamer@sectionintoc {2}{El Algoritmo Gen\IeC {\'e}tico Simple}{9}{0}{2}
+\beamer@sectionintoc {3}{Fluid Genetic Algorithm (FGA)}{17}{0}{3}
+\beamer@sectionintoc {4}{Experimentos y Desempe\IeC {\~n}o}{33}{0}{4}
+\beamer@sectionintoc {5}{Problema de la asignaci\IeC {\'o}n cuadr\IeC {\'a}tica (QAP)}{43}{0}{5}
+\beamer@sectionintoc {6}{Conclusiones}{55}{0}{6}

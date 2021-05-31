@@ -1,0 +1,40 @@
+Autor: Dimitri Semenov Flores
+No Cuenta: 3133545
+
+Instrucciones de compilación y ejecución
+
+Requisitos: ant de Apache, Java Virtual Machine, Java Development Kit.
+
+Desde la carpeta madre:
+Se puede hacer cualquiera de las siguientes tareas con ant:
+	compile, clean, doc, dist
+
+	- doc Genera la documentacion
+	- dist Compila las clases y genera un jar
+	- compile Compila las clases y pone en la carpeta build
+	- clean Elimina la documentacion, archivos.class y el jar
+
+La tarea default es dist
+
+Para ejecutar el programa se realiza de la siguiente forma	
+	$ java -jar [Problema] [Argumentos] [Opcion]
+
+	[Problema] - Se refiere al archivo que contiene las matrices
+				 de flujos y distancias de una instancia de QAP
+				Las instancias se encuentrar en la carpeta 
+				"Problemas_resolver"
+
+	[Argumentos] - Se refiere al archivo que contiene los parametros
+				 - utilizados en los algoritmos geneticos.
+				   Estos se encuentrar en la carpeta 
+				   "Parametros"
+				   Se recomienda ingresar a los archivos de parametros y cambiar
+				   los parametros a su gusto
+				   el archivo ags se refiere a los parametros del algoritmo genetico
+				   simple y el archivo fga a los parametros del fluid genetic algorithm
+
+	[Opcion]    - Se refiere al algoritmo que se quiere utilizar para resolver
+				  la instancia del problema.
+				  Usar la opcion [-a] para el algoritmo genetico simple
+				  Usar la opcion [-f] para el fluid genetic algorithm
+

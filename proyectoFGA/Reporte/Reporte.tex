@@ -1,0 +1,458 @@
+%Jueves 24, agosto 2017
+\documentclass[letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+%\usepackage[spanish]{babel}
+%\usepackage{tabularx}
+%\usepackage{chronology}
+\usepackage{color, colortbl}
+\usepackage[table]{xcolor} 
+\usepackage{array}
+
+\begin{document}
+	\title{Reporte. Proyecto Final FGA}
+	\author{Dimitri Semenov Flores\\
+			No. Cuenta 313308545 \\
+	        Cómputo Evolutivo, Facultad de Ciencias,\\
+	        U.N.A.M.}
+	\date{16 de enero de 2018}
+	\maketitle
+
+	\section{Metodología de comparación y Complicaciones}
+	
+	\noindent\rule{\textwidth}{1pt}
+	
+	El objetivo del reporte es presentar los resultados obtenidos
+	de forma experimental que comparan el desempeño del algoritmo genético
+	simple con el del algoritmo genético fluido.
+
+
+	Para comparar los algoritmos se pusieron a prueba en seis instancias distintas
+	del problema de asignación cuadrático, para cada uno de los algoritmos se
+	buscó afinar sus parámetros para cada problema buscando el mejor desempeño
+	posible en cada problema.
+
+
+	No se tomo en cuentra la solución optima definida en la página \textbf{QAPLIB}
+	de donde se tomaran las instancias del problema QAP, esto debido a que 
+	el costo indicado en la página de la solución optima no concuerda con los 
+	valores obtenidos al evaluar la solución con la función objetivo definida.
+
+	Supongo que tal vez en la página se considere algún factor extra en la función
+	objetivo que no indican, por lo que se vuelve imposible replicar la función
+	objetivo de la página. Por lo anterior decidí comparar los algoritmos 
+	en base a quien proporciona la mejor solución.
+
+	\section{Afinamiento de Parámetros}
+
+	\noindent\rule{\textwidth}{1pt}
+
+	Para la afinación del algoritmo genético simple se tomarón tres valores para
+	cada uno de los parámetros, los cuales son:
+		\begin{itemize}
+			\item \textbf{Probabilidad de Cruzamiento}
+			
+			\item \textbf{Probabilidad de Mutación}
+		\end{itemize}
+		
+	Para cada combinación de los parámetros se realizaron diez experimentos
+	y se condidero la mejor solución que generaron.
+
+
+			
+	\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{3}{|c|}{\textcolor{white}{\textbf{Chr12a}}} \\
+    		\hline
+    		\hline
+    		Probabilidad Cruza & Probabilidad  Mutación & Mejor solución (costo) \\
+    		\hline
+    		$0.6$ & $0.1$ & $5050$\\
+    		\hline
+    		$0.6$ & $0.2$ & $5101$\\
+    		\hline
+    		$0.6$ & $0.3$ & $5061$\\
+    		\hline
+    		$0.75$ & $0.1$ & $4776$\\
+    		\hline
+    		$0.75$ & $0.2$ & $5096$\\
+    		\hline
+    		$0.75$ & $0.3$ & $4781$\\
+    		\hline
+    		$0.9$ & $0.1$ & $5123$\\
+    		\hline
+    		\textbf{0.9} & \textbf{0.2} & \textbf{4776}\\
+    		\hline
+    		$0.9$ & $0.3$ & $5096$\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+
+	\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{3}{|c|}{\textcolor{white}{\textbf{Chr15b}}} \\
+    		\hline
+    		\hline
+    		Probabilidad Cruza & Probabilidad  Mutación & Mejor solución (costo) \\
+    		\hline
+    		$0.6$ & $0.1$ & $5181$\\
+    		\hline
+    		$0.6$ & $0.2$ & $4601$\\
+    		\hline
+    		$0.6$ & $0.3$ & $4641$\\%
+    		\hline
+    		$0.75$ & $0.1$ & $4754$\\
+    		\hline
+    		\textbf{0.75} & \textbf{0.2} & \textbf{4320}\\
+    		\hline
+    		$0.75$ & $0.3$ & $4762$\\
+    		\hline
+    		$0.9$ & $0.1$ & $5160$\\
+    		\hline
+    		$0.9$ & $0.2$ & $5394$\\
+    		\hline
+    		$0.9$ & $0.3$ & $4951$\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+
+	\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{3}{|c|}{\textcolor{white}{\textbf{Esc16a}}} \\
+    		\hline
+    		\hline
+    		Probabilidad Cruza & Probabilidad  Mutación & Mejor solución (costo) \\
+    		\hline
+    		\textbf{0.6} & \textbf{0.1} & \textbf{34}\\
+    		\hline
+    		$0.6$ & $0.2$ & $36$\\
+    		\hline
+    		$0.6$ & $0.3$ & $39$\\%
+    		\hline
+    		$0.75$ & $0.1$ & $35$\\
+    		\hline
+    		$0.75$ & $0.2$ & $34$\\
+    		\hline
+    		$0.75$ & $0.3$ & $38$\\
+    		\hline
+    		$0.9$ & $0.1$ & $34$\\
+    		\hline
+    		$0.9$ & $0.2$ & $35$\\
+    		\hline
+    		$0.9$ & $0.3$ & $38$\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+
+	\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{3}{|c|}{\textcolor{white}{\textbf{Esc32a}}} \\
+    		\hline
+    		\hline
+    		Probabilidad Cruza & Probabilidad  Mutación & Mejor solución (costo) \\
+    		\hline
+    		\textbf{0.6} & \textbf{0.1} & \textbf{82}\\
+    		\hline
+    		$0.6$ & $0.2$ & $114$\\
+    		\hline
+    		$0.6$ & $0.3$ & $126$\\%
+    		\hline
+    		$0.75$ & $0.1$ & $87$\\
+    		\hline
+    		$0.75$ & $0.2$ & $146$\\
+    		\hline
+    		$0.75$ & $0.3$ & $138$\\
+    		\hline
+    		$0.9$ & $0.1$ & $83$\\
+    		\hline
+    		$0.9$ & $0.2$ & $115$\\
+    		\hline
+    		$0.9$ & $0.3$ & $129$\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+
+	\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{3}{|c|}{\textcolor{white}{\textbf{Had20}}} \\
+    		\hline
+    		\hline
+    		Probabilidad Cruza & Probabilidad  Mutación & Mejor solución (costo) \\
+    		\hline
+    		$0.6$ & $0.1$ & $3737$\\
+    		\hline
+    		$0.6$ & $0.2$ & $3710$\\
+    		\hline
+    		$0.6$ & $0.3$ & $3736$\\%
+    		\hline
+    		$0.75$ & $0.1$ & $3678$\\
+    		\hline
+    		$0.75$ & $0.2$ & $3728$\\
+    		\hline
+    		$0.75$ & $0.3$ & $3711$\\
+    		\hline
+    		\textbf{0.9} & \textbf{0.1} & \textbf{3658}\\
+    		\hline
+    		$0.9$ & $0.2$ & $3722$\\
+    		\hline
+    		$0.9$ & $0.3$ & $3691$\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+	Para el algoritmo genético fluido se fijo el parámetro \textbf{Diversity rate}
+	con el valor de 0.00001 y se escogieron dos valores distintos para cada uno
+	de los parámetros restantes, los cuales son:
+		\begin{itemize}
+			\item \textbf{Probabilidad de Cruzamiento}
+			
+			\item \textbf{Global Learning Rate}
+			
+			\item \textbf{Individual Learning Rate}
+		\end{itemize}
+
+		\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{4}{|c|}{\textcolor{white}{\textbf{Chr12a}}} \\
+    		\hline
+    		\hline
+    		Probabilidad Cruza & Global LR &  Individual LR & Mejor solución (costo) \\
+    		\hline
+    		$0.75$ & $0.1$ & $0.03$ &  $9103$\\
+    		\hline
+    		$0.75$ & $0.1$ & $0.01$ & $8614$\\
+    		\hline
+    		\textbf{0.75} & \textbf{0.2} & \textbf{0.03} & \textbf{7370}\\
+    		\hline
+    		$0.75$ & $0.2$ & $0.01$ & $9119$\\
+    		\hline
+    		$0.9$ & $0.1$ & $0.03$ &  $8346$\\
+    		\hline
+    		$0.9$ & $0.1$ & $0.01$ & $8000$\\
+    		\hline
+    		$0.9$ & $0.2$ & $0.03$ & $8169$\\
+    		\hline
+    		$0.9$ & $0.2$ & $0.01$ & $8015$\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+
+		\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{4}{|c|}{\textcolor{white}{\textbf{Chr15b}}} \\
+    		\hline
+    		\hline
+    		Probabilidad Cruza & Global LR &  Individual LR & Mejor solución (costo) \\
+    		\hline
+    		$0.75$ & $0.1$ & $0.03$ & $11 082$\\
+    		\hline
+    		$0.75$ & $0.1$ & $0.01$ & $11 866$\\
+    		\hline
+    		$0.75$ & $0.2$ & $0.03$ & $10 662$\\
+    		\hline
+    		$0.75$ & $0.2$ & $0.01$ & $12 392$\\
+    		\hline
+    		$0.9$ & $0.1$ & $0.03$ &  $14 279$\\
+    		\hline
+    		\textbf{0.9} & \textbf{0.1} & \textbf{0.01} & \textbf{10 601}\\
+    		\hline
+    		$0.9$ & $0.2$ & $0.03$ & $11 499$\\
+    		\hline
+    		$0.9$ & $0.2$ & $0.01$ & $12 079$\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+
+
+		\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{4}{|c|}{\textcolor{white}{\textbf{Esc16a}}} \\
+    		\hline
+    		\hline
+    		Probabilidad Cruza & Global LR &  Individual LR & Mejor solución (costo) \\
+    		\hline
+    		$0.75$ & $0.1$ & $0.03$ & $39$\\
+    		\hline
+    		\textbf{0.75} & \textbf{0.1} & \textbf{0.01} & \textbf{37}\\
+    		\hline
+    		$0.75$ & $0.2$ & $0.03$ & $40$\\
+    		\hline
+    		$0.75$ & $0.2$ & $0.01$ & $40$\\
+    		\hline
+    		$0.9$ & $0.1$ & $0.03$ &  $41$\\
+    		\hline
+    		$0.9$ & $0.1$ & $0.01$ & $42$\\
+    		\hline
+    		$0.9$ & $0.2$ & $0.03$ & $40$\\
+    		\hline
+    		$0.9$ & $0.2$ & $0.01$ & $41$\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+
+		\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{4}{|c|}{\textcolor{white}{\textbf{Esc32a}}} \\
+    		\hline
+    		\hline
+    		Probabilidad Cruza & Global LR &  Individual LR & Mejor solución (costo) \\
+    		\hline
+    		$0.75$ & $0.1$ & $0.03$ &  $158$\\
+    		\hline
+    		$0.75$ & $0.1$ & $0.01$ & $160$\\
+    		\hline
+    		$0.75$ & $0.2$ & $0.03$ & $151$\\
+    		\hline
+    		\textbf{0.75} & \textbf{0.2} & \textbf{0.01} & \textbf{150}\\
+    		\hline
+    		$0.9$ & $0.1$ & $0.03$ &  $164$\\
+    		\hline
+    		$0.9$ & $0.1$ & $0.01$ & $162$\\
+    		\hline
+    		$0.9$ & $0.2$ & $0.03$ & $161$\\
+    		\hline
+    		$0.9$ & $0.2$ & $0.01$ & $164$\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+		\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{4}{|c|}{\textcolor{white}{\textbf{Had20}}} \\
+    		\hline
+    		\hline
+    		Probabilidad Cruza & Global LR &  Individual LR & Mejor solución (costo) \\
+    		\hline
+    		\textbf{0.75} & \textbf{0.1} & \textbf{0.03} &  \textbf{3651}\\
+    		\hline
+    		$0.75$ & $0.1$ & $0.01$ & $3657$\\
+    		\hline
+    		$0.75$ & $0.2$ & $0.03$ & $3704$\\
+    		\hline
+    		$0.75$ & $0.2$ & $0.01$ & $3713$\\
+    		\hline
+    		$0.9$ & $0.1$ & $0.03$ &  $3694$\\
+    		\hline
+    		$0.9$ & $0.1$ & $0.01$ & $3694$\\
+    		\hline
+    		$0.9$ & $0.2$ & $0.03$ & $3705$\\
+    		\hline
+    		$0.9$ & $0.2$ & $0.01$ & $3701$\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+	\section{AGS vs FGA}
+	\noindent\rule{\textwidth}{1pt}
+
+	La siguiente tabla muestra el desempeño de cada algoritmo en cada instancia
+	del problema QAP utilizando los parámetros afinados obtenidos para cada
+	problema.
+
+	\begin{center}
+		%\rowcolors{2}{blue!25}{blue!5}
+		\begin{tabular}[b]{| c | c | c |}
+    		\hline
+    		\rowcolor{black}
+    		\multicolumn{3}{|c|}{\textcolor{white}{\textbf{FGA vs AGS}}} \\
+    		\hline
+    		\hline
+    		AGS & FGA & Problema \\
+    		\hline
+    		$4776$ & $7370$ & chr12a\\
+    		\hline
+    		$4320$ & $10 601$ & chr15b\\
+    		\hline
+    		$34$ & $37$ & esc16a\\
+    		\hline
+    		$82$ & $150$ & esc32a\\
+    		\hline
+    		$3658$ & $3651$ & had20\\
+    		\hline
+    	\end{tabular}
+	\end{center}
+
+	En base en la tabla anterior encontrarmos que el FGA queda siempre atras
+	del algoritmo genético simple en casi todos los problemas y en la mayoría
+	es superado con un margen considerablemente alto, esto 
+	tal vez se deba al No free lunch theorem.
+	
+	La única instancia donde el FGA mostro  un mejor desempeño fue
+	en la instancia Had20 pero por un margen mínimo.
+
+
+	\section{Conclusiones}
+	\noindent\rule{\textwidth}{1pt}
+
+	En base a los experimentos encontramos que el FGA, a pesar de ser más rapido
+	y permitir un control considerablemente más alto sobre la convergencia de
+	las soluciones en la población, genera soluciones considerablemente peores o
+	marginalmente mejores para instancias del QAP, lo cual creo no es un
+	\textit{"trado of"} deseado.
+
+	Una de las principales quejas que tengo con en el fluid genetic algoritm es que 
+	en los cromomsomas cuando la probabilidad de predisposición se acerca al valor
+	0.0, esa celda del cromosoma simplemente nos dice \textit{Estoy bastante seguro
+	de que en esa posición el fenotipo del individuo no debe ser [valor]}.
+
+	Otro problema es que dada la población de cromosomas es complicado obtenter
+	el \textit{mejor} de ellos, ya que necesitariamos evaluarlos en base a sus predisposciones
+	y es posible que el mejor cromosomas tenga \textit{un mal día} y genere un 
+	individuo pésimo.
+
+	Lo cual puede ser exactamente el caso opuesto o para problemas como el 
+	Esc32 que tiene 32 valores posibles simplemente nos dice que puede ir alguno
+	de los otros 31 valores, pero no nos da alguna pista sobre cual de
+	esos valores podria ser el adecuado. Este problema se acentua debido a que
+	en base a las pruebas realizadas una gran cantidad de cromosomas tienen 
+	varias celdas con predisposiciones cercanas a 0.0, generando varias \textbf{huecos}
+	de información sobre la solución optima.
+
+
+	Quizas si consideramos el teorema de \textit{No free lunch theorem} puede suceder
+	que el fluid genetic algorithm se desempeñe mejor que el algoritmo genético 
+	simple en otros problemas
+
+	Faltaría realizar un analisis más profundo del funcionamiento y desempeño
+	del fluid genetic algorithm, pero al menos con los resultados iniciales decepcionantes
+	obtenidos se visualiza un panorama poco emocionante para el fluid genetic algorithm
+
+\end{document}
